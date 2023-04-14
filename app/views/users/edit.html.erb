@@ -1,4 +1,13 @@
 <%= form_with model: @user do |form| %>
+  <% @user.errors.full_messages_for(:username).each do |message| %>
+    <%= message %>
+  <% end %>
+  <% @user.errors.full_messages_for(:email).each do |message| %>
+    <%= message %>
+  <% end %>
+  <% @user.errors.full_messages_for(:password).each do |message| %>
+    <%= message %>
+  <% end %>
   <%= form.label :username, "Username:" %>
   <%= form.text_field :username, value: "myname" %>
   <%= form.label :email, "Email:"%>
